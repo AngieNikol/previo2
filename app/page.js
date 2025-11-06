@@ -27,11 +27,16 @@ export default function Home() {
 
   function sortProducts(products, sortBy) {
     if (sortBy === "price-asc") {
-      return setSortBy([...products].sort((a, b) => a.price - b.price));
+      return setProducts([...products].sort((a, b) => a.price - b.price));
     } else if (sortBy === "price-desc") {
-      return setSortBy([...products].sort((a, b) => b.price - a.price));
+      return setProducts([...products].sort((a, b) => b.price - a.price));
     }
-    return products;
+  }
+
+  function searchProducts(products, searchText) {
+    return products.filter((product) =>
+      product.title.toLowerCase().includes(searchText.toLowerCase())
+    );
   }
 
   return (
