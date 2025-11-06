@@ -24,12 +24,20 @@ export default function Home() {
     fetchProducts();
   }, []);
 
+  function sortProducts(products, sortBy) {
+    if (sortBy === "price-asc") {
+      return [...products].sort((a, b) => a.price - b.price);
+    } else if (sortBy === "price-desc") {
+      return [...products].sort((a, b) => b.price - a.price);
+    }
+  }
+
   return (
     <div className="min-h-screen bg-background">
       <div className="container mx-auto px-4 py-8">
         <div className="mb-8 space-y-6">
           <h1 className="text-4xl font-bold">Tienda</h1>
-          
+
           <div className="max-w-md">
             <input
               type="text"
@@ -41,6 +49,7 @@ export default function Home() {
           </div>
 
           <Filters />
+          <sortProducts products={products} sortBy={sortBy} />
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">

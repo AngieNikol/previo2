@@ -28,7 +28,7 @@ export function Filters({ category, setCategory, sortBy, setSortBy }) {
           <SelectValue placeholder="Ordenar por" />
         </SelectTrigger>
         <SelectContent>
-          <SelectItem value="price-asc">Precio: menor a mayor</SelectItem>
+          <SelectItem onClick={sortBy} value="price-asc">Precio: menor a mayor</SelectItem>
           <SelectItem value="price-desc">Precio: mayor a menor</SelectItem>
         </SelectContent>
       </Select>
