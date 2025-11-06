@@ -27,9 +27,9 @@ export default function Home() {
 
   function sortProducts(products, sortBy) {
     if (sortBy === "price-asc") {
-      return [...products].sort((a, b) => a.price - b.price);
+      return setSortBy([...products].sort((a, b) => a.price - b.price));
     } else if (sortBy === "price-desc") {
-      return [...products].sort((a, b) => b.price - a.price);
+      return setSortBy([...products].sort((a, b) => b.price - a.price));
     }
     return products;
   }
@@ -60,7 +60,7 @@ export default function Home() {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {sortProducts.map((product) => (
+          {products.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
         </div>
