@@ -24,12 +24,14 @@ export default function Home() {
     fetchProducts();
   }, []);
 
+
   function sortProducts(products, sortBy) {
     if (sortBy === "price-asc") {
       return [...products].sort((a, b) => a.price - b.price);
     } else if (sortBy === "price-desc") {
       return [...products].sort((a, b) => b.price - a.price);
     }
+    return products;
   }
 
   return (
@@ -48,12 +50,17 @@ export default function Home() {
             />
           </div>
 
-          <Filters />
-          <sortProducts products={products} sortBy={sortBy} />
+          <Filters
+            category={category}
+            setCategory={setCategory}
+            sortBy={sortBy}
+            setSortBy={setSortBy}
+          />
+
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {products.map((product) => (
+          {sortProducts.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
         </div>

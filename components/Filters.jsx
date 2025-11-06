@@ -9,6 +9,9 @@ import {
 } from "@/components/ui/select";
 
 export function Filters({ category, setCategory, sortBy, setSortBy }) {
+
+
+
   return (
     <div className="flex flex-wrap gap-4">
       <Select value={category || undefined} onValueChange={setCategory}>
@@ -28,7 +31,7 @@ export function Filters({ category, setCategory, sortBy, setSortBy }) {
           <SelectValue placeholder="Ordenar por" />
         </SelectTrigger>
         <SelectContent>
-          <SelectItem onClick={sortBy} value="price-asc">Precio: menor a mayor</SelectItem>
+          <SelectItem value="price-asc">Precio: menor a mayor</SelectItem>
           <SelectItem value="price-desc">Precio: mayor a menor</SelectItem>
         </SelectContent>
       </Select>
